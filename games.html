@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highly Rated Games</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <header class="bg-white h-24 sm:h-32 flex items-center z-30 w-full">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <div class="uppercase text-gray-800 dark:text-white font-black text-5xl">
+                Crossplay Connect
+            </div>
+            <div>
+                <a href="index.html" class="absolute uppercase text-gray-800 dark:text-white font-black text-3xl">Home</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="mx-auto w-full text-center my-5">
+            <button class="uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-3xl hover:bg-violet-600" onclick="openModal()">Select your platform</button>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="flex flex-wrap w-full justify-center align-items-center">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 class="text-center text-2xl uppercase">Select your platforms:</h2>
+                        <form class="flex flex-wrap flex-row justify-center text-center w-full max-w-lg">
+                                <div class="platform my-2 w-1/2">
+                                    <label for="platform1">Platform 1</label><br>
+                                    <select id="platform1" name="platform1">
+                                        <option value="platform2_option1">PlayStation 5</option>
+                                        <option value="platform2_option2">Xbox One</option>
+                                        <option value="platform2_option3">Nintendo Switch</option>
+                                        <option value="platform2_option4">PC</option>
+                                    </select>
+                                </div>
+                                <div class="platform my-2 w-1/2">
+                                    <label for="platform2">Platform 2</label><br>
+                                    <select id="platform2" name="platform2">
+                                        <option value="platform2_option1">PlayStation 5</option>
+                                        <option value="platform2_option2">Xbox One</option>
+                                        <option value="platform2_option3">Nintendo Switch</option>
+                                        <option value="platform2_option4">PC</option>
+                                    </select>
+                                </div>
+                                <div id="genreChecklist">
+                                    <h2 class="text-center text-2xl uppercase">Select some genres:</h2>
+                                </div>
+                            <button id="submitButton" class=" my-5 justify-center uppercase py-2 px-4 rounded-lg bg-violet-800 border-2 border-transparent text-white text-md mr-4 hover:bg-violet-600">FIND GAMES</button>
+                        </form> 
+                    </div>
+                </div>
+         </div>
+
+        <div>
+            <ul id="listOfGames" class="text-center text-xl mb-5">    
+            </ul>
+        </div>
+
+    </main>
+
+        
+
+    <script>
+
+function addToWishlistFromInput() {
+    var gameName = document.getElementById('gameNameInput').value;
+    if (gameName.trim() !== '') {
+
+        localStorage.setItem('enteredGameName', gameName);
+        
+      
+        window.location.href = `wishlist.html?game=${gameName}`;
+    } else {
+        alert('Please enter a valid game name.');
+    }
+}
+
+        var modal = document.getElementById('myModal');
+    
+        function openModal() {
+            modal.style.display = 'block';
+        }
+    
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+    /*
+        window.onclick = function(event) {
+            if(event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+            */
+     </script> 
+
+    <script src="./assets/js/script.js"></script>
+
+</body>
+</html>
